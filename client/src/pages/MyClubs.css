@@ -1,0 +1,423 @@
+
+.my-clubs-page {
+  width: 100%;
+  color: #20243a;
+}
+
+.my-clubs-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.my-clubs-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #7460c9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.my-clubs-heading h1 {
+  margin: 10px 0 7px;
+  font-size: 30px;
+}
+
+.my-clubs-heading p,
+.my-clubs-section-heading p {
+  margin: 0;
+  color: #777b8e;
+  font-size: 14px;
+}
+
+.my-clubs-heading-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #eeeaff;
+  color: #7560c9;
+}
+
+.my-clubs-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+  margin-bottom: 32px;
+  border: 1px solid #eceaf5;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.my-clubs-summary-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #f0edff;
+  color: #7560c9;
+}
+
+.my-clubs-summary strong {
+  display: block;
+  font-size: 25px;
+}
+
+.my-clubs-summary span {
+  color: #777b8e;
+  font-size: 13px;
+}
+
+.my-clubs-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+}
+
+.my-clubs-section-heading h2 {
+  margin: 0 0 6px;
+  font-size: 19px;
+}
+
+.my-clubs-section-heading > span {
+  color: #777b8e;
+  font-size: 13px;
+}
+
+.my-clubs-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  height: 50px;
+  margin-bottom: 22px;
+  border: 1px solid #e8e7ef;
+  border-radius: 11px;
+  background: #fff;
+  color: #85889a;
+}
+
+.my-clubs-search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #20243a;
+  font-size: 14px;
+}
+
+.my-clubs-search button {
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  color: #777b8e;
+  cursor: pointer;
+}
+
+.my-clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.my-club-card {
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid #eceaf3;
+  border-radius: 15px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.my-club-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(40, 35, 80, 0.07);
+}
+
+.my-club-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+
+.my-club-avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.my-club-category {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #f2f0fa;
+  color: #7460b6;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.my-club-card h3 {
+  margin: 0 0 9px;
+  font-size: 17px;
+}
+
+.my-club-card > p {
+  min-height: 60px;
+  margin: 0;
+  color: #777b8e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.my-club-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 18px 0;
+  color: #777b8e;
+  font-size: 12px;
+}
+
+.my-club-meta span,
+.my-club-modal-info span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.my-club-actions {
+  display: flex;
+  gap: 9px;
+  padding-top: 15px;
+  border-top: 1px solid #f0eff5;
+}
+
+.my-club-actions button,
+.my-club-unfollow,
+.my-club-view,
+.my-clubs-empty button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.my-club-unfollow {
+  border: 1px solid #e8e1f7;
+  background: #f5f2ff;
+  color: #7058bc;
+}
+
+.my-club-view {
+  flex: 1;
+  border: 1px solid #e8e7ef;
+  background: #fff;
+  color: #44465b;
+}
+
+.my-club-unfollow:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.my-clubs-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 30px;
+  border: 1px dashed #dedbe9;
+  border-radius: 15px;
+  background: #fff;
+  text-align: center;
+  color: #777b8e;
+}
+
+.my-clubs-empty h3 {
+  margin: 15px 0 7px;
+  color: #303249;
+  font-size: 17px;
+}
+
+.my-clubs-empty p {
+  max-width: 420px;
+  margin: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.my-clubs-empty button {
+  border: none;
+  background: #7460c9;
+  color: #fff;
+}
+
+.my-clubs-empty-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f0edff;
+  color: #7560c9;
+}
+
+.my-clubs-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 15px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.my-clubs-message.error {
+  justify-content: space-between;
+  background: #fff0ee;
+  color: #b42318;
+}
+
+.my-clubs-message.success {
+  background: #eaf8f0;
+  color: #18794e;
+}
+
+.my-clubs-message button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.my-club-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(20, 20, 35, 0.55);
+}
+
+.my-club-modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px;
+  border-radius: 17px;
+  background: #fff;
+}
+
+.my-club-modal-close {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #f2f0f7;
+  color: #55566a;
+  cursor: pointer;
+}
+
+.my-club-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.my-club-modal-header h2 {
+  margin: 8px 0 0;
+  font-size: 21px;
+}
+
+.my-club-modal h3 {
+  margin: 20px 0 8px;
+  font-size: 15px;
+}
+
+.my-club-modal > p {
+  color: #777b8e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.my-club-modal ul {
+  padding-left: 20px;
+  color: #777b8e;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.my-club-modal-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 22px 0;
+  color: #777b8e;
+  font-size: 12px;
+}
+
+.modal-unfollow {
+  width: 100%;
+  min-height: 42px;
+}
+
+@media (max-width: 1050px) {
+  .my-clubs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .my-clubs-heading h1 {
+    font-size: 25px;
+  }
+
+  .my-clubs-heading-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .my-clubs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .my-clubs-summary {
+    padding: 17px;
+  }
+
+  .my-club-modal {
+    padding: 22px;
+  }
+}

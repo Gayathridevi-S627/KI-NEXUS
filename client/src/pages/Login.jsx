@@ -1,17 +1,27 @@
+
 import { useState } from "react";
-import { ArrowRight, LockKeyhole, Mail, UserRound, GraduationCap } from "lucide-react";
+import {
+  ArrowRight,
+  LockKeyhole,
+  Mail,
+  UserRound,
+  GraduationCap
+} from "lucide-react";
 import "./Login.css";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+// Works locally through Vite proxy and on Vercel through /api
+const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
 function Login({ onLogin }) {
   const [mode, setMode] = useState("login");
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     rollNumber: "",
     password: ""
   });
+
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -24,22 +34,25 @@ function Login({ onLogin }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     setMessage("");
     setLoading(true);
 
-    const endpoint = mode === "login" ? "/auth/login" : "/auth/register";
+    const endpoint =
+      mode === "login" ? "/auth/login" : "/auth/register";
 
-    const payload = mode === "login"
-      ? {
-          email: form.email,
-          password: form.password
-        }
-      : {
-          name: form.name,
-          email: form.email,
-          rollNumber: form.rollNumber,
-          password: form.password
-        };
+    const payload =
+      mode === "login"
+        ? {
+            email: form.email,
+            password: form.password
+          }
+        : {
+            name: form.name,
+            email: form.email,
+            rollNumber: form.rollNumber,
+            password: form.password
+          };
 
     try {
       const response = await fetch(`${API_BASE}${endpoint}`, {
@@ -57,8 +70,12 @@ function Login({ onLogin }) {
       }
 
       if (mode === "register") {
-        setMessage("Registration successful! You can now log in.");
+        setMessage(
+          "Registration successful! You can now log in."
+        );
+
         setMode("login");
+
         setForm({
           name: "",
           email: form.email,
@@ -67,11 +84,18 @@ function Login({ onLogin }) {
         });
       } else {
         localStorage.setItem("ki_nexus_token", data.token);
-        localStorage.setItem("ki_nexus_student", JSON.stringify(data.student));
+
+        localStorage.setItem(
+          "ki_nexus_student",
+          JSON.stringify(data.student)
+        );
+
         onLogin(data.student, data.token);
       }
     } catch (error) {
-      setMessage(error.message || "Unable to connect to the server");
+      setMessage(
+        error.message || "Unable to connect to the server"
+      );
     } finally {
       setLoading(false);
     }
@@ -79,53 +103,77 @@ function Login({ onLogin }) {
 
   return (
     <div className="login-page">
+
+      {/* Left branding section */}
       <div className="login-left">
+
         <div className="login-brand">
           <div className="brand-symbol">K</div>
           <span>KI NEXUS</span>
         </div>
 
         <div className="login-hero">
-          <span className="login-eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</span>
+
+          <span className="login-eyebrow">
+            YOUR CAMPUS. YOUR COMMUNITY.
+          </span>
+
           <h1>
             Find your people.
             <br />
             Discover your place.
           </h1>
+
           <p>
-            Connect with student communities, discover campus opportunities
-            and make your college experience meaningful.
+            Connect with student communities, discover campus
+            opportunities and make your college experience meaningful.
           </p>
 
           <div className="login-feature">
+
             <div className="feature-icon">
               <GraduationCap size={22} />
             </div>
+
             <div>
-              <strong>One campus. Endless possibilities.</strong>
-              <span>Discover. Connect. Belong.</span>
+              <strong>
+                One campus. Endless possibilities.
+              </strong>
+
+              <span>
+                Discover. Connect. Belong.
+              </span>
             </div>
+
           </div>
         </div>
 
         <div className="login-left-footer">
           KUMARAGURU COLLEGE OF TECHNOLOGY
         </div>
+
       </div>
 
+      {/* Right authentication section */}
       <div className="login-right">
+
         <div className="login-form-container">
+
           <div className="mobile-brand">
             <div className="brand-symbol">K</div>
             <span>KI NEXUS</span>
           </div>
 
           <span className="form-eyebrow">
-            {mode === "login" ? "WELCOME BACK" : "JOIN THE COMMUNITY"}
+            {mode === "login"
+              ? "WELCOME BACK"
+              : "JOIN THE COMMUNITY"}
           </span>
 
           <h2>
-            {mode === "login" ? "Sign in to KI Nexus" : "Create your account"}
+            {mode === "login"
+              ? "Sign in to KI Nexus"
+              : "Create your account"}
           </h2>
 
           <p className="form-description">
@@ -134,7 +182,9 @@ function Login({ onLogin }) {
               : "Register to explore and connect with campus communities."}
           </p>
 
+          {/* Login and registration tabs */}
           <div className="auth-tabs">
+
             <button
               type="button"
               className={mode === "login" ? "active" : ""}
@@ -156,14 +206,19 @@ function Login({ onLogin }) {
             >
               Register
             </button>
+
           </div>
 
+          {/* Authentication form */}
           <form onSubmit={handleSubmit}>
+
             {mode === "register" && (
               <>
                 <label>Full name</label>
+
                 <div className="input-wrapper">
                   <UserRound size={18} />
+
                   <input
                     type="text"
                     name="name"
@@ -175,8 +230,10 @@ function Login({ onLogin }) {
                 </div>
 
                 <label>Roll number</label>
+
                 <div className="input-wrapper">
                   <GraduationCap size={18} />
+
                   <input
                     type="text"
                     name="rollNumber"
@@ -190,8 +247,10 @@ function Login({ onLogin }) {
             )}
 
             <label>College email</label>
+
             <div className="input-wrapper">
               <Mail size={18} />
+
               <input
                 type="email"
                 name="email"
@@ -203,8 +262,10 @@ function Login({ onLogin }) {
             </div>
 
             <label>Password</label>
+
             <div className="input-wrapper">
               <LockKeyhole size={18} />
+
               <input
                 type="password"
                 name="password"
@@ -216,10 +277,15 @@ function Login({ onLogin }) {
               />
             </div>
 
+            {/* Success and error messages */}
             {message && (
-              <div className={`auth-message ${
-                message.includes("successful") ? "success" : "error"
-              }`}>
+              <div
+                className={`auth-message ${
+                  message.includes("successful")
+                    ? "success"
+                    : "error"
+                }`}
+              >
                 {message}
               </div>
             )}
@@ -234,31 +300,45 @@ function Login({ onLogin }) {
                 : mode === "login"
                   ? "Sign in"
                   : "Create account"}
+
               {!loading && <ArrowRight size={18} />}
             </button>
+
           </form>
 
+          {/* Switch between login and registration */}
           <p className="login-switch">
+
             {mode === "login"
               ? "New to KI Nexus?"
               : "Already have an account?"}
+
             <button
               type="button"
               onClick={() => {
-                setMode(mode === "login" ? "register" : "login");
+                setMode(
+                  mode === "login" ? "register" : "login"
+                );
+
                 setMessage("");
               }}
             >
-              {mode === "login" ? "Create account" : "Sign in"}
+              {mode === "login"
+                ? "Create account"
+                : "Sign in"}
             </button>
+
           </p>
 
           <div className="login-bottom">
             <span>KI NEXUS</span>
             <span>Discover. Connect. Belong.</span>
           </div>
+
         </div>
+
       </div>
+
     </div>
   );
 }

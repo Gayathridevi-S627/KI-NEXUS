@@ -1,96 +1,521 @@
 
+/* ========================================
+   KI NEXUS - DASHBOARD STYLES
+======================================== */
+
+.dashboard-content {
+  width: 100%;
+  padding: 34px 38px;
+  box-sizing: border-box;
+  background: #f7f8fc;
+  min-height: 100%;
+  color: #253451;
+}
+
 .dashboard-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 300px;
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* ========================================
+   WELCOME BANNER
+======================================== */
+
+.welcome-banner {
+  position: relative;
+  width: 100%;
+  min-height: 355px;
+  border-radius: 18px;
+  overflow: hidden;
+
+  /* YOUR CAMPUS IMAGE */
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(12, 27, 58, 0.92) 0%,
+      rgba(12, 27, 58, 0.76) 48%,
+      rgba(12, 27, 58, 0.20) 100%
+    ),
+    url("/images/my-campus.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
-  justify-content: center;
 }
+
+.banner-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 42px 48px;
+  box-sizing: border-box;
+}
+
+.banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #d8e5ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 22px;
+}
+
+.banner-tag svg {
+  color: #a9c8ff;
+}
+
+.banner-overlay h1 {
+  color: #ffffff;
+  font-size: 43px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+  margin: 0 0 16px;
+}
+
+.banner-overlay p {
+  color: #e1e8f5;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 0 25px;
+}
+
+.banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #1c3971;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.banner-button:hover {
+  background: #eaf1ff;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   ERROR MESSAGE
+======================================== */
 
 .dashboard-error {
   padding: 14px 18px;
-  margin: 20px 0;
-  border-radius: 10px;
-  background: #fff1f0;
-  color: #b42318;
-  font-size: 14px;
+  margin-top: 20px;
+  border-radius: 9px;
+  background: #fff0f0;
+  color: #bd3434;
+  font-size: 13px;
 }
+
+/* ========================================
+   DASHBOARD STATISTICS
+======================================== */
 
 .dashboard-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
-  margin: 28px 0 38px;
+  margin: 28px 0 48px;
 }
 
 .dashboard-stat-card {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 17px;
+  min-height: 110px;
   padding: 22px;
+  box-sizing: border-box;
   background: #ffffff;
-  border: 1px solid #e9edf3;
-  border-radius: 14px;
+  border: 1px solid #e7ebf2;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(30, 50, 85, 0.07);
 }
 
 .dashboard-stat-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .dashboard-stat-icon.blue {
-  background: #eaf1ff;
-  color: #315bb5;
+  background: #eaf0ff;
+  color: #3265d8;
 }
 
 .dashboard-stat-icon.green {
-  background: #e7f6ed;
-  color: #238653;
+  background: #e8f7ef;
+  color: #21965c;
 }
 
 .dashboard-stat-icon.pink {
   background: #fcecf3;
-  color: #b43e72;
+  color: #d13d80;
 }
 
 .dashboard-stat-icon.orange {
   background: #fff1e5;
-  color: #bd6b27;
+  color: #d66b16;
 }
 
 .dashboard-stat-card span {
   display: block;
-  color: #737d8c;
+  color: #78869c;
   font-size: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .dashboard-stat-card h2 {
+  color: #152c50;
+  font-size: 27px;
+  line-height: 1;
   margin: 0;
-  color: #17243a;
-  font-size: 25px;
+  font-weight: 750;
 }
+
+/* ========================================
+   SECTION HEADINGS
+======================================== */
+
+.section-block {
+  margin-bottom: 45px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  display: block;
+  color: #6557c8;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+  margin-bottom: 9px;
+}
+
+.section-heading h2 {
+  color: #172c4d;
+  font-size: 22px;
+  font-weight: 750;
+  margin: 0 0 6px;
+}
+
+.section-heading p {
+  color: #8290a6;
+  font-size: 12px;
+  margin: 0;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #5144c8;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.text-link:hover {
+  color: #3023a2;
+}
+
+/* ========================================
+   CLUB CARDS
+======================================== */
+
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.club-card {
+  padding: 19px;
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  min-width: 0;
+}
+
+.club-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 24px rgba(30, 50, 85, 0.08);
+  border-color: #d8def0;
+}
+
+.club-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 750;
+  margin-bottom: 15px;
+}
+
+.club-card h3 {
+  color: #1b2f50;
+  font-size: 16px;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.club-card p {
+  color: #7d899c;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.club-card > span {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #f0f2ff;
+  color: #6255bd;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+/* ========================================
+   EVENTS
+======================================== */
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.event-card {
+  padding: 21px;
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(30, 50, 85, 0.07);
+}
+
+.event-type {
+  display: inline-block;
+  padding: 6px 11px;
+  background: #edf2ff;
+  color: #4565b5;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  margin-bottom: 13px;
+}
+
+.event-card h3 {
+  color: #1b2f50;
+  font-size: 17px;
+  margin: 0 0 7px;
+}
+
+.event-club {
+  display: block;
+  color: #7c879a;
+  font-size: 12px;
+  margin-bottom: 17px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #edf0f5;
+}
+
+.event-details span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #718096;
+  font-size: 11px;
+}
+
+.event-details svg {
+  color: #637bc1;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   EMPTY STATES
+======================================== */
 
 .dashboard-empty {
-  padding: 25px;
+  padding: 30px 20px;
   text-align: center;
-  color: #7b8492;
   background: #ffffff;
-  border: 1px solid #e9edf3;
+  border: 1px dashed #dce2ed;
   border-radius: 12px;
+  color: #8490a3;
+  font-size: 13px;
 }
 
-@media (max-width: 1000px) {
+/* ========================================
+   FOOTER
+======================================== */
+
+.dashboard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 0 8px;
+  border-top: 1px solid #e5e9f1;
+  color: #929db0;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1100px) {
   .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .club-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .event-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+  .dashboard-content {
+    padding: 18px 15px;
+  }
+
+  .welcome-banner {
+    min-height: 330px;
+    background-position: center;
+  }
+
+  .banner-overlay {
+    padding: 28px 23px;
+  }
+
+  .banner-overlay h1 {
+    font-size: 31px;
+  }
+
+  .banner-overlay p {
+    font-size: 12px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0 35px;
+  }
+
+  .dashboard-stat-card {
+    padding: 13px;
+    gap: 10px;
+    min-height: 90px;
+  }
+
+  .dashboard-stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dashboard-stat-card span {
+    font-size: 10px;
+  }
+
+  .dashboard-stat-card h2 {
+    font-size: 23px;
+  }
+
+  .section-heading h2 {
+    font-size: 19px;
+  }
+
+  .club-grid,
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .dashboard-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
   .dashboard-stats {
     grid-template-columns: 1fr;
   }
+
+  .banner-overlay h1 {
+    font-size: 27px;
+  }
+}
+.welcome-banner {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(12, 27, 58, 0.88),
+      rgba(12, 27, 58, 0.25)
+    ),
+    url("/images/my-campus.jpg") !important;
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }

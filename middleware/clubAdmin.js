@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 const Student = require("../models/Student");
 const Club = require("../models/Club");
@@ -47,6 +46,7 @@ async function clubAdmin(req, res, next) {
     req.clubAdmin = student;
 
     next();
+
   } catch (error) {
     console.error("Club admin authorization error:", error);
 

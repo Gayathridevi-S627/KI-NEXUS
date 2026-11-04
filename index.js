@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const express = require("express");
@@ -12,13 +11,14 @@ const authRoutes = require("./routes/auth");
 const clubRoutes = require("./routes/clubs");
 const eventRoutes = require("./routes/events");
 const apiRoutes = require("./routes/api");
+const clubMemberRoutes = require("./routes/clubMembers");
 
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// MongoDB connection cache for Vercel serverless functions
+// MongoDB connection cache
 let mongoConnectionPromise = null;
 
 async function connectDB() {
@@ -49,7 +49,7 @@ async function connectDB() {
   await mongoConnectionPromise;
 }
 
-// Connect to MongoDB before handling API requests
+// Connect MongoDB before API requests
 app.use(async (req, res, next) => {
   try {
     await connectDB();
@@ -80,6 +80,7 @@ app.get("/ping", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/clubs", clubRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/club-members", clubMemberRoutes);
 app.use("/api", apiRoutes);
 
 // Local development
@@ -91,5 +92,5 @@ if (require.main === module) {
   });
 }
 
-// Export Express app for Vercel
+// Export for Vercel
 module.exports = app;

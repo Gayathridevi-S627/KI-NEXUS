@@ -1,6 +1,4 @@
-
 const express = require("express");
-const mongoose = require("mongoose");
 
 const Student = require("../models/Student");
 const auth = require("../middleware/auth");
@@ -8,7 +6,7 @@ const clubAdmin = require("../middleware/clubAdmin");
 
 const router = express.Router();
 
-// GET all members following an administered club
+// GET all followers of a club
 router.get("/:clubId", auth, clubAdmin, async (req, res) => {
   try {
     const { search = "" } = req.query;
@@ -41,6 +39,7 @@ router.get("/:clubId", auth, clubAdmin, async (req, res) => {
       total: members.length,
       members
     });
+
   } catch (error) {
     console.error("Fetch club members error:", error);
 
@@ -51,7 +50,7 @@ router.get("/:clubId", auth, clubAdmin, async (req, res) => {
   }
 });
 
-// GET total member count
+// GET total followers count
 router.get("/:clubId/count", auth, clubAdmin, async (req, res) => {
   try {
     const total = await Student.countDocuments({
@@ -62,6 +61,7 @@ router.get("/:clubId/count", auth, clubAdmin, async (req, res) => {
       success: true,
       total
     });
+
   } catch (error) {
     console.error("Member count error:", error);
 
